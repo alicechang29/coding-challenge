@@ -56,11 +56,10 @@ max_age: 45
 i need to take the values within the req.query object and:
 search in the DB
 
-for every key in req.query:
+for every key in req.query, generate a where clause
 
-SELECT user_id
-FROM USERS
-WHERE age BETWEEN min_age AND max_age
+How do separate out the user values from the location values?
+can check for object keys...
 
 # Form
 
