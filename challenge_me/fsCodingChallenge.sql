@@ -5,7 +5,7 @@ DROP TABLE locations;
 DROP TABLE temporary;
 
 CREATE TABLE users(
-    user_id INT NOT NULL,
+    id INT NOT NULL,
     user_name VARCHAR(25) NOT NULL,
     user_age SMALLINT NOT NULL,
     user_fav_color VARCHAR(20) NOT NULL,

@@ -1,3 +1,23 @@
+# Start Up
+
+```shell
+npm i
+node --watch server.js
+# if there's an error with server, probably missing package
+
+```
+
+Aug 15: START HERE NEXT
+
+- left off on models/locations - constructing where clause for filtering on user_id.
+- Next steps:
+  -- finish locations models
+  -- figure out filtering on coordinates
+  -- finish the users route
+  -- return the json in required format
+
+# Reqs
+
 person can send a list of params that filters a list of users by giving:
 
 - fav color
@@ -41,6 +61,11 @@ Steps:
 Run this command to update the db:
 `psql -f fsCodingChallenge.sql fsCodingChallenge`
 
+# Model
+
+- Select users and filter based on params passed in, return user_id
+- Take the user_id(s) and filter locations based on params, return locations
+
 # API
 
 How to make a get request with filtering?
@@ -61,6 +86,12 @@ for every key in req.query, generate a where clause
 How do separate out the user values from the location values?
 can check for object keys...
 
+## GeoJSON
+
+- just a json format - a "point" is a single coordinate
+
 # Form
 
 Upon form submit, it will auto append query values to the URL
+
+Try axios instead of fetch api

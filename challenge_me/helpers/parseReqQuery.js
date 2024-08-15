@@ -1,14 +1,24 @@
-function parseReqQuery(req.query) {
+/** Given raw data received from req.query
+ * @param {*} rawData
+ * { min_age: '27' }
+ * @returns {userValuesToFilter, locationValuesToFilter}
+ */
+
+function parseReqQuery(rawData) {
+
+  const userKeys = ['users_fav_color', 'min_age', 'max_age'];
   const userValuesToFilter = {};
   const locationValuesToFilter = {};
 
-  for (key in req.query) {
+  for (let key in rawData) {
     if (userKeys.includes(key)) {
-      userValuesToFilter[key] = req.query[key];
+      userValuesToFilter[key] = rawData[key];
     } else {
-      locationValuesToFilter[key] = req.query[key];
+      locationValuesToFilter[key] = rawData[key];
     }
   }
 
   return { userValuesToFilter, locationValuesToFilter };
 }
+
+export { parseReqQuery };

@@ -2,7 +2,9 @@ import express from "express";
 import cors from "cors";
 import { NotFoundError } from "./expressError.js";
 import { add } from "./add.js";
+import usersRoutes from "./routes/users.js";
 
+// const express = require('express');
 const app = express();
 
 // allow both form-encoded and json body parsing
@@ -18,14 +20,9 @@ app.get("/", function (req, res) {
 });
 
 /** routes */
+//NOTE: /users is the prefix. Any routes within users do not need another /users
+app.use("/users", usersRoutes);
 
-// import authRoutes from "./routes/auth.js";
-// import userRoutes from "./routes/users.js";
-// import messageRoutes from "./routes/messages.js";
-
-// app.use("/auth", authRoutes);
-// app.use("/users", userRoutes);
-// app.use("/messages", messageRoutes);
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
